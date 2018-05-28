@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">
+        <title>登录界面</title>
+        <link rel="stylesheet" href="/static/assets/css/amazeui.min.css" />
+        <link rel="stylesheet" href="/static/assets/css/admin.css">
+        <link rel="stylesheet" href="/static/assets/css/app.css">
+        <style type="text/css">
+            .error{
+                background: #fb8344;
+                color:#fff !important;
+                text-align: center;
+                line-height: 40px !important;
+                margin:10px 0;}
+        </style>
+    </head>
+
+    <body data-type="login">
+        <div class="am-g myapp-login">
+            <div class="myapp-login-logo-block  tpl-login-max">
+                <div class="myapp-login-logo-text">
+                    <div class="myapp-login-logo-text">拉钩数据分析系统<span> 登录</span> <i class="am-icon-skyatlas"></i>
+                    </div>
+                </div>
+                <div class="am-u-sm-10 login-am-center">
+                    <form class="am-form" method="post" action="{% url 'users:login' %}">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <input type="text" class="" name="username" id="doc-ipt-email-1" placeholder="输入用户名">
+                            </div>
+                            <div class="am-form-group">
+                                <input type="password" name="password" class="" id="doc-ipt-pwd-1" placeholder="输入密码">
+                            </div>
+                            {% csrf_token %}
+                            <p>
+                                <button type="submit" class="am-btn am-btn-default">登录</button>
+                            </p>
+                        </fieldset>
+                        <div class="error btns" id="jsEmailTips">{{ msg | safe }}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="/static/assets/js/jquery.min.js"></script>
+        <script src="/static/assets/js/amazeui.min.js"></script>
+        <script src="/static/assets/js/app.js"></script>
+    </body>
+</html>
